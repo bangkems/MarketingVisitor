@@ -3,10 +3,10 @@ import { StyleSheet, View, ScrollView } from 'react-native'
 import { Text, FAB, Avatar, Button, Card, Title, Paragraph, IconButton, Colors} from 'react-native-paper'
 import Header from '../components/Header'
 
-function Landing({ navigation }) {
+function ShareOffers({ navigation }) {
     return (
       <>
-        <Header titleText='Voucher untuk Kamu!' />
+        <Header titleText='Mau hadiah lebih?' />
         
         <View style={styles.container}>
             <ScrollView>
@@ -63,4 +63,4 @@ function Landing({ navigation }) {
       }
   })
 
-export default Landing
+export default ShareOffers
