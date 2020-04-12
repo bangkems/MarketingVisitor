@@ -32,22 +32,21 @@ function ShareOffers({ navigation }) {
             <View>
             <Title style={styles.title}>Yeay, Voucher berhasil kamu peroleh!</Title>
             </View>
-            <Card>
+            <Card style={styles.cardVoucher}>
             <Card.Cover source={{ uri: 'https://via.placeholder.com/700x300?text=Gambar+Voucher' }} />
+            <Title style={styles.titleVoucher}>Diskon 30% Potong Rambut</Title>
+            <Paragraph style={styles.locationVoucher}>Semua Suka Barbershop, Surabaya</Paragraph>
             </Card>
-            <View style={styles.detilVoucher}>
-            <Card>
-            <Card.Title
-                title="Diskon 30% Potong Rambut"
-                subtitle="Semua Suka Barbershop, Surabaya"
-             />
-            </Card>
+            <View>
+            <Paragraph style={styles.titleAjakan}>Mau mendapatkan reward dari membagikan voucher?</Paragraph>
+            <Paragraph style={styles.subAjakan}>Kamu akan mendapat reward ketika temanmu menggunakan voucher yang kamu bagikan. Download aplikasi Marketing Platform untuk klaim rewardmu</Paragraph>
+            <Paragraph></Paragraph>   
             </View>
             </ScrollView>
             <Button style={styles.tombol} mode="contained" onPress={onShare}>
           Bagikan ke Teman
           </Button>
-          <Text style={styles.tombolLink} onPress={() => navigation.navigate('Registrasi')}>Lanjutkan ke Unduh Voucher</Text>
+          <Text style={styles.tombolLink} onPress={() => navigation.navigate('DownloadVoucher')}>Lanjutkan ke Unduh Voucher</Text>
         </View>
       </>
     )
@@ -55,10 +54,13 @@ function ShareOffers({ navigation }) {
 
   const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      paddingHorizontal: 10,
-      paddingVertical: 20
+        flex: 1,
+        backgroundColor: '#fff',
+        paddingHorizontal: 10,
+        paddingVertical: 20
+    },
+    cardVoucher: {
+        backgroundColor: '#16a085'
     },
     detilVoucher: {
         textAlign: 'center'
@@ -68,10 +70,32 @@ function ShareOffers({ navigation }) {
         paddingBottom: 20,
         textAlign: 'center'
     },
+    titleVoucher: {
+        textAlign: 'center',
+        paddingTop: 20,
+        color: 'white'
+    },
+    titleAjakan: {
+        paddingTop: 20,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        fontSize: 16
+    },
+    subAjakan: {
+        textAlign: 'center',
+        paddingLeft: 10,
+        paddingRight: 10
+    },
+    locationVoucher: {
+        textAlign: 'center',
+        color: 'black',
+        paddingBottom: 20,
+        color: 'white'
+    },
     tombol: {
         marginTop: 20,
         paddingVertical: 5,
-        backgroundColor: 'purple',
+        backgroundColor: '#2980b9',
     },
     tombolLink: {
         paddingTop: 10,

@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, View, ScrollView } from 'react-native'
-import { Text, FAB, Avatar, Button, Card, Title, Paragraph, IconButton, Colors} from 'react-native-paper'
+import { Button, Card, Paragraph } from 'react-native-paper'
 import Header from '../components/Header'
 
 function Landing({ navigation }) {
@@ -19,12 +19,13 @@ function Landing({ navigation }) {
             <Card.Content>
                 <Paragraph style={styles.titleDesc}>Lebih gaya dengan model rambut baru dengan capster professional!</Paragraph>
                 <Paragraph>Kini kamu tak perlu risau lagi memiliki gaya rambut yang usang karena Semua Suka Barbershop lagi ada promo lho! Promo ini berlaku di semua cabang di Surabaya</Paragraph>
+                <Paragraph></Paragraph>
                 <Paragraph style={styles.titleDesc}>Syarat dan Ketentuan</Paragraph>
                 <Paragraph>Promo ini berlaku untuk pemilik akun Marketing Platform</Paragraph>
             </Card.Content>
             </Card>
             </ScrollView>
-            <Button style={styles.tombol} mode="contained" onPress={() => navigation.navigate('Registrasi')}>
+            <Button style={styles.tombol} mode="contained" onPress={() => navigation.navigate('SignUp')}>
           AMBIL VOUCHER
           </Button>
         </View>
@@ -59,7 +60,7 @@ function Landing({ navigation }) {
     tombol: {
         marginTop: 20,
         paddingVertical: 5,
-        backgroundColor: 'purple',
+        backgroundColor: '#2980b9',
       }
   })
 
