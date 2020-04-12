@@ -1,37 +1,58 @@
 import React from 'react'
-import { StyleSheet, View, ScrollView } from 'react-native'
-import { Text, FAB, Avatar, Button, Card, Title, Paragraph, IconButton, Colors} from 'react-native-paper'
+import { StyleSheet, View, ScrollView, Share } from 'react-native'
+import { Text, Button, Card, Title, Paragraph} from 'react-native-paper'
 import Header from '../components/Header'
 
 function ShareOffers({ navigation }) {
+    const onShare = async () => {
+        try {
+          const result = await Share.share({
+            message:
+              'Saya mendapatkan Voucher 30% klik link ini untuk mendapatkan hal yang sama {link}',
+          });
+          if (result.action === Share.sharedAction) {
+            if (result.activityType) {
+              // shared with activity type of result.activityType
+            } else {
+              // shared
+            }
+          } else if (result.action === Share.dismissedAction) {
+            // dismissed
+          }
+        } catch (error) {
+          alert(error.message);
+        }
+      }
     return (
       <>
-        <Header titleText='Mau hadiah lebih?' />
+        <Header titleText='Bagikan Penawaran' />
         
         <View style={styles.container}>
             <ScrollView>
+            <View>
+            <Title style={styles.title}>Yeay, Voucher berhasil kamu peroleh!</Title>
+            </View>
             <Card>
             <Card.Cover source={{ uri: 'https://via.placeholder.com/700x300?text=Gambar+Voucher' }} />
+            </Card>
+            <View style={styles.detilVoucher}>
+            <Card>
             <Card.Title
                 title="Diskon 30% Potong Rambut"
                 subtitle="Semua Suka Barbershop, Surabaya"
              />
-            <Card.Content>
-                <Paragraph style={styles.titleDesc}>Lebih gaya dengan model rambut baru dengan capster professional!</Paragraph>
-                <Paragraph>Kini kamu tak perlu risau lagi memiliki gaya rambut yang usang karena Semua Suka Barbershop lagi ada promo lho! Promo ini berlaku di semua cabang di Surabaya</Paragraph>
-                <Paragraph style={styles.titleDesc}>Syarat dan Ketentuan</Paragraph>
-                <Paragraph>Promo ini berlaku untuk pemilik akun Marketing Platform</Paragraph>
-            </Card.Content>
             </Card>
+            </View>
             </ScrollView>
-            <Button style={styles.tombol} mode="contained" onPress={() => navigation.navigate('Registrasi')}>
-          AMBIL VOUCHER
+            <Button style={styles.tombol} mode="contained" onPress={onShare}>
+          Bagikan ke Teman
           </Button>
+          <Text style={styles.tombolLink} onPress={() => navigation.navigate('Registrasi')}>Lanjutkan ke Unduh Voucher</Text>
         </View>
       </>
     )
   }
-  
+
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -39,28 +60,26 @@ function ShareOffers({ navigation }) {
       paddingHorizontal: 10,
       paddingVertical: 20
     },
-    titleContainer: {
-      alignItems: 'center',
-      justifyContent: 'center',
-      flex: 1
+    detilVoucher: {
+        textAlign: 'center'
     },
     title: {
-      fontSize: 20
-    },
-    titleDesc: {
-        fontWeight: 'bold'
-    },
-    fab: {
-      position: 'absolute',
-      margin: 20,
-      right: 0,
-      bottom: 10
+        flex: 1,
+        paddingBottom: 20,
+        textAlign: 'center'
     },
     tombol: {
         marginTop: 20,
         paddingVertical: 5,
         backgroundColor: 'purple',
-      }
+    },
+    tombolLink: {
+        paddingTop: 10,
+        textDecorationLine: 'underline',
+        textAlign: 'center',
+        color: 'grey'
+    }
   })
+
 
 export default ShareOffers

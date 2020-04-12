@@ -5,7 +5,7 @@ import AppNavigator from './src/navigation'
 
 export default function App() {
   return (
-    <PaperProvider>
+      <PaperProvider>
       <AppNavigator />
     </PaperProvider>
   )
