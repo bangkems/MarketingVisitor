@@ -1,23 +1,23 @@
 import React from 'react'
-import { StyleSheet, View, ScrollView } from 'react-native'
+import { StyleSheet, View, ScrollView, Linking } from 'react-native'
 import { Text, Button, Card, Title, Paragraph, TextInput} from 'react-native-paper'
-import Header from '../components/Header'
+import Header from '../components/HeaderBack'
 
 function DownloadVoucher({ navigation }) {
   const kodeVoucher = 'AKH12SSZA1122AKS'
     return (
       <>
-        <Header titleText='Download Voucher' />
+        <Header titleText='Download Voucher' backButton={ () => navigation.goBack() } />
         <View style={styles.container}>
             <ScrollView>
             <Card style={styles.cardVoucher}>
-            <Card.Cover source={{ uri: 'https://via.placeholder.com/700x300?text=Gambar+Voucher'}} />
-            <Title style={styles.titleVoucher}>Diskon 30% Potong Rambut</Title>
-            <Paragraph style={styles.locationVoucher}>Semua Suka Barbershop, Surabaya</Paragraph>
+            <Card.Cover source={{ uri: "https://source.unsplash.com/collection/10017690/700x700" }} />
+            <Title style={styles.titleVoucher}>Semua Produk Diskon 20% !</Title>
+            <Paragraph style={styles.locationVoucher}>Ripped Jeans Company - Bandung, Jawa Barat</Paragraph>
             </Card>
             <View>
             <Paragraph style={styles.validity}>Berlaku Hingga: 04-07-2021</Paragraph>
-            <Text style={styles.tombolLink}>Download Voucher</Text>
+            <Text style={styles.tombolLink} onPress={ ()=>{ Linking.openURL('https://via.placeholder.com/700x500.png?text=Kode%20Voucher:%20AKH12SSZA1122AKS')}}>Download Voucher</Text>
             <Paragraph style={styles.descVoucher}>Tunjukkan gambar atau kode voucher yang telah kamu download saat melakukan transaksi offline di merchant sebelum masa berlaku habis</Paragraph>
             <TextInput
               label='Kode Voucher'
@@ -29,8 +29,8 @@ function DownloadVoucher({ navigation }) {
             </ScrollView>
             <View>
             <Paragraph style={styles.ajakanDownload}>Jadi pahlawan UKM dengan Marketing Platform. Download sekarang!</Paragraph>
-            <Button style={styles.tombol} mode="contained">
-          DOWNLOAD APLIKASI
+            <Button style={styles.tombol} mode="contained" onPress={ ()=>{ Linking.openURL("market://details?id=id.ac.its.my.mahasiswa")}}>
+          DOWNLOAD MARKETINGFANS
           </Button>
           </View>
         </View>

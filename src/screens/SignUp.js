@@ -2,12 +2,12 @@ import React from 'react'
 import { StyleSheet, View, ScrollView } from 'react-native'
 import { Text, Button, TextInput, Avatar } from 'react-native-paper'
 
-import Header from '../components/Header'
+import Header from '../components/HeaderBack'
 
 function SignUp({ navigation }) {
     return (
       <>
-        <Header titleText='Registrasi' />
+        <Header titleText='Registrasi' backButton={ () => navigation.goBack() } />
         <ScrollView style={styles.scrollView}>
         <View style={styles.container}>
           <View style={styles.titleContainer}>
@@ -25,7 +25,7 @@ function SignUp({ navigation }) {
             mode='flat'
             style={styles.textInput}
           />
-          <Button style={styles.button} mode="contained" onPress={() => navigation.navigate('ShareOffers')}>Sign Up</Button>
+          <Button style={styles.tombol} mode="contained" onPress={() => navigation.navigate('ShareOffers')}>Daftar Sekarang</Button>
         </View>
         </ScrollView>
       </>
@@ -67,11 +67,11 @@ const styles = StyleSheet.create({
       margin: 20,
       // bottom: 120,
     },
-    button: {
-      margin: 20,
-      // bottom: 50,
-      backgroundColor: '#0055a5'
-    }
+    tombol: {
+        margin: 20,
+        paddingVertical: 5,
+        backgroundColor: '#2980b9'
+    },
   })
 
 export default SignUp

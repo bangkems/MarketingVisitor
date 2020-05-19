@@ -8,7 +8,7 @@ function ShareOffers({ navigation }) {
         try {
           const result = await Share.share({
             message:
-              'Saya mendapatkan Voucher 30% klik link ini untuk mendapatkan hal yang sama {link}',
+              'Semua Produk Diskon 20% di Ripped Jeans Company! - https://marketingvisitor-dev.netlify.app',
           });
           if (result.action === Share.sharedAction) {
             if (result.activityType) {
@@ -33,13 +33,13 @@ function ShareOffers({ navigation }) {
             <Title style={styles.title}>Yeay, Voucher berhasil kamu peroleh!</Title>
             </View>
             <Card style={styles.cardVoucher}>
-            <Card.Cover source={{ uri: 'https://via.placeholder.com/700x300?text=Gambar+Voucher' }} />
-            <Title style={styles.titleVoucher}>Diskon 30% Potong Rambut</Title>
-            <Paragraph style={styles.locationVoucher}>Semua Suka Barbershop, Surabaya</Paragraph>
+            <Card.Cover source={{ uri: "https://source.unsplash.com/collection/10017690/700x700" }} />
+            <Title style={styles.titleVoucher}>Semua Produk Diskon 20% !</Title>
+            <Paragraph style={styles.locationVoucher}>Ripped Jeans Company - Bandung, Jawa Barat</Paragraph>
             </Card>
             <View>
             <Paragraph style={styles.titleAjakan}>Mau mendapatkan reward dari membagikan voucher?</Paragraph>
-            <Paragraph style={styles.subAjakan}>Kamu akan mendapat reward ketika temanmu menggunakan voucher yang kamu bagikan. Download aplikasi Marketing Platform untuk klaim rewardmu</Paragraph>
+            <Paragraph style={styles.subAjakan}>Kamu akan mendapat reward ketika temanmu menggunakan voucher yang kamu bagikan. Download aplikasi MarketingFans untuk klaim rewardmu</Paragraph>
             <Paragraph></Paragraph>   
             </View>
             </ScrollView>
